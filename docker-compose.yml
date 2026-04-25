@@ -1,0 +1,57 @@
+# /home/quyle91/projects/flatsome-local/docker-compose.yml
+services:
+  app:
+    container_name: ${APP_NAME}_app
+    restart: always
+    env_file: .env
+    environment:
+      # case 1
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      # case 2
+      DATABASE_HOST: ${WORDPRESS_DB_HOST}
+      DATABASE_NAME: ${WORDPRESS_DB_NAME}
+      DATABASE_USER: ${WORDPRESS_DB_USER}
+      DATABASE_USER_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      # case 3
+      DB_HOST: ${WORDPRESS_DB_HOST}
+      DB_NAME: ${WORDPRESS_DB_NAME}
+      DB_USER: ${WORDPRESS_DB_USER}
+      DB_USER_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    depends_on:
+      - db
+
+
+  web:
+    container_name: ${APP_NAME}_web
+    image: nginx:stable-alpine
+    restart: always
+    env_file: .env
+    depends_on:
+      - app
+
+  db:
+    container_name: ${APP_NAME}_db
+    image: mysql:8.4
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${WORDPRESS_DB_USER}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    # image: mariadb:10.6
+    # command: [
+    #   "--character-set-server=utf8mb4",
+    #   "--collation-server=utf8mb4_unicode_ci",
+    #   "--max_connections=100",
+    #   "--innodb_buffer_pool_size=256M"
+    # ]
+
+volumes:
+  db_data:
+    name: ${VOLUME_DB}
+    external: true

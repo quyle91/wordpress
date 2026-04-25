@@ -1,0 +1,14 @@
+FROM nginx:stable-alpine
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy all source files for static asset serving
+COPY ./source/ .
+COPY ./docker/import/ .
+
+# Copy nginx configuration
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# Set permissions for nginx to read files
+RUN chmod -R 755 /var/www/html

@@ -1,0 +1,40 @@
+# /docker-compose.prod.yml
+services:
+  app:
+    build: .
+    image: ${APP_IMAGE:-app-php}:${APP_VERSION:-latest}
+    restart: always
+    volumes:
+      - wp_uploads:/var/www/html/wp-content/uploads
+      - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+      - ./docker/php/zzz-uploads.ini:/usr/local/etc/php/conf.d/zzz-uploads.ini:ro
+    networks:
+      default:
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-Web
+    image: ${WEB_IMAGE:-app-nginx}:${APP_VERSION:-latest}
+    restart: always
+    volumes:
+      - wp_uploads:/var/www/html/wp-content/uploads:ro
+      # Config is now COPY-ed in Dockerfile, so no binding needed unless you want to override
+    networks:
+      default:
+      proxy:
+
+  db:
+    networks:
+      default:
+
+
+networks:
+  proxy:
+    external: true
+    
+
+volumes:
+  wp_uploads:
+    name: ${VOLUME_UPLOADS}
+    external: true

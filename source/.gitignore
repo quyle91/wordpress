@@ -1,0 +1,37 @@
+
+# WordPress
+wp-config.php
+..htaccess
+
+# wordpress other
+wp-content/advanced-cache.php
+wp-content/ai1wm-backups/
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/cache/
+wp-content/fonts/
+wp-content/upgrade-temp-backup/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wflogs/
+wp-content/languages/
+
+
+
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# files
+wp-content/languages/*.json
+wp-content/languages/plugins/*.json
+*.log
+*.wpress
+*.maintenance
+*.po~
+*.pot~
+___*.php

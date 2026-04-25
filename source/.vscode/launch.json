@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    
+    {
+      "name": "flatsome",
+      "type": "php",
+      "request": "launch",
+      "port": 9999,
+      "pathMappings": {
+        "D:/Laragon/www/flatsome": "${workspaceFolder}"
+      },
+      "log": true
+    }
+  ]
+}
