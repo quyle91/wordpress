@@ -22,6 +22,8 @@ echo "Source: $SOURCE_DIR"
 echo "Target: $TARGET_DIR"
 
 find "$TARGET_DIR" -mindepth 1 -maxdepth 1 \
+  ! -name '.env' \
+  ! -name '.env.prod' \
   ! -name '.git' \
   ! -name '.gitignore' \
   ! -name '.gitmodules' \
