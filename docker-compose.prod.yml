@@ -2,6 +2,7 @@
 services:
   app:
     build: .
+    user: "${HOST_USER:-www-data:www-data}"
     image: ${APP_IMAGE:-app-php}:${APP_VERSION:-latest}
     restart: always
     volumes:

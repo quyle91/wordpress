@@ -2,7 +2,7 @@
 services:
   app:
     build: .
-    user: "${HOST_USER:-33:33}"
+    user: "${HOST_USER:-www-data:www-data}"
     volumes:
       - ./source:/var/www/html
       - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro

@@ -1,10 +1,12 @@
 # /docker-compose.pma.yml
 # pma production
-# docker compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.pma.yml up -d pma
-# docker compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.pma.yml stop pma
+# docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.pma.yml up -d pma
+# docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.pma.yml stop pma
+
 # pma local
 # docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.pma.yml up -d pma
 # docker compose -f docker-compose.yml -f docker-compose.override.yml -f docker-compose.pma.yml stop pma
+
 services:
   pma:
     image: phpmyadmin:latest

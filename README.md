@@ -1,14 +1,14 @@
-1. local dev
+1. Local dev
 ```bash
 docker compose up -d
 docker compose down
 ```
 
-2. local build image
+2. Build image 
 ```bash
-docker compose -f docker-compose.yml -f docker-compose.prod.yml build
+docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml build
 docker login registry.gitlab.com
-docker compose -f docker-compose.yml -f docker-compose.prod.yml push
+docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml push
 ```
 
 3. production
@@ -17,7 +17,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml push
 ssh <Server IP>
 cd /data/projects/xxx
 nano .env
-docker compose -f docker-compose.yml -f docker-compose.prod.yml pull
-docker compose -f docker-compose.yml -f docker-compose.prod.yml down
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml pull
+docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml down
+docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
