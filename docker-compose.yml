@@ -1,4 +1,4 @@
-# /home/quyle91/projects/flatsome-local/docker-compose.yml
+#/docker-compose.yml
 services:
   app:
     container_name: ${APP_NAME}_app
