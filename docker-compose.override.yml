@@ -21,14 +21,11 @@ services:
 
     labels:
       - "traefik.enable=true"
-      # domain
-      - "traefik.http.routers.wp.rule=Host(`${APP_DOMAIN}`)"
-      # entrypoint https
-      - "traefik.http.routers.wp.entrypoints=websecure"
-      # bật TLS
-      - "traefik.http.routers.wp.tls=true"
-      # port nginx bên trong container
-      - "traefik.http.services.wp.loadbalancer.server.port=80"
+      - "traefik.http.routers.${APP_NAME}.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.${APP_NAME}.entrypoints=websecure"
+      - "traefik.http.routers.${APP_NAME}.tls=true"
+      - "traefik.http.services.${APP_NAME}.loadbalancer.server.port=80"
+      - "traefik.docker.network=proxy"
 
   db:
     networks:
