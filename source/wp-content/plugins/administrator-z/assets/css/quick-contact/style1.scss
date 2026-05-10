@@ -1,0 +1,340 @@
+.admz_ctg1 {
+    * {
+        box-sizing: border-box;
+    }
+
+    display: inline-grid;
+    position: fixed;
+    bottom: calc(0% + 50px);
+    right: 0;
+    left: unset;
+    min-width: 40px;
+    text-align: center;
+    z-index: 1041;
+
+    .item {
+        background-color: #00aeef;
+        color: white;
+        transition: all 0.25s;
+        padding: 5px;
+        position: relative;
+
+        &:hover {
+            box-shadow: 1px 1px 17px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (min-width: 768px) {
+            &:hover {
+                margin-left: -5px;
+                width: calc(100% + 5px) !important;
+            }
+        }
+    }
+
+    .zalo {
+        background-color: #0180c7;
+    }
+
+    .email {
+        background-color: #1cbbb4;
+    }
+
+    .call {
+        background-color: #01af38;
+    }
+
+    .gmap {
+        background-color: #cf3d34;
+    }
+
+    .facebook,
+    .messenger {
+        background-color: #1877f2;
+    }
+
+    .twitter {
+        background-color: #55acee;
+    }
+
+    .linkedin,
+    .slideshare {
+        background-color: #0077b5;
+    }
+
+    .skype,
+    .dropbox,
+    .wordpress {
+        background-color: #00aff0;
+    }
+
+    .vimeo {
+        background-color: #1ab7ea;
+    }
+
+    .vk {
+        background-color: #4c75a3;
+    }
+
+    .tumblr {
+        background-color: #34465d;
+    }
+
+    .yahoo {
+        background-color: #410093;
+    }
+
+    .google-plus {
+        background-color: #dd4b39;
+    }
+
+    .pinterest {
+        background-color: #bd081c;
+    }
+
+    .youtube {
+        background-color: #cd201f;
+    }
+
+    .stumbleupon {
+        background-color: #eb4924;
+    }
+
+    .reddit {
+        background-color: #ff5700;
+    }
+
+    .quora {
+        background-color: #b92b27;
+    }
+
+    .yelp {
+        background-color: #af0606;
+    }
+
+    .weibo {
+        background-color: #df2029;
+    }
+
+    .hackernews {
+        background-color: #f60;
+    }
+
+    .soundcloud {
+        background-color: #f30;
+    }
+
+    .blogger {
+        background-color: #f57d00;
+    }
+
+    .whatsapp {
+        background-color: #25d366;
+    }
+
+    .wechat {
+        background-color: #09b83e;
+    }
+
+    .line {
+        background-color: #40bf05;
+    }
+
+    .medium {
+        background-color: #02b875;
+    }
+
+    .vine {
+        background-color: #00b489;
+    }
+
+    .slack {
+        background-color: #3aaf85;
+    }
+
+    .instagram {
+        background-color: #e4405f;
+    }
+
+    .dribbble {
+        background-color: #ea4c89;
+    }
+
+    .flickr {
+        background-color: #ff0084;
+    }
+
+    .foursquare {
+        background-color: #f94877;
+    }
+
+    .behance {
+        background-color: #131418;
+    }
+
+    .snapchat {
+        background-color: #fffc00;
+    }
+
+    .bebo {
+        background-color: #e61112;
+    }
+
+    .delicious {
+        background-color: #3e84d3;
+    }
+
+    .deviantart {
+        background-color: #01ca3a;
+    }
+
+    .digg {
+        background-color: #2066a3;
+    }
+
+    .envato {
+        background-color: #8cca4b;
+    }
+
+    .forrst {
+        background-color: #0d5f36;
+    }
+
+    .github {
+        background-color: #302f2f;
+    }
+
+    .google-drive {
+        background-color: #00a745;
+    }
+
+    .hangout {
+        background-color: #0f9855;
+    }
+
+    .html {
+        background-color: #dd4b25;
+    }
+
+    .kickstarter {
+        background-color: #05c874;
+    }
+
+    .lastfm {
+        background-color: #dc1a22;
+    }
+
+    .myspace {
+        background-color: #003194;
+    }
+
+    .path {
+        background-color: #c42828;
+    }
+
+    .periscope {
+        background-color: #3e9fbe;
+    }
+
+    .picasa {
+        background-color: #9958b4;
+    }
+
+    .rss {
+        background-color: #dd4b25;
+    }
+
+    .spotify {
+        background-color: #1dd05d;
+    }
+
+    .swarm {
+        background-color: #eb8d3a;
+    }
+
+    .team-viewer {
+        background-color: #0362c2;
+    }
+
+    .telegram {
+        background-color: #1f9bda;
+    }
+
+    .twitch {
+        background-color: #5d3da5;
+    }
+
+    .wattpad {
+        background-color: #f64d09;
+    }
+
+    .xing {
+        background-color: #045d61;
+    }
+
+    .viber {
+        background-color: #7360F2;
+    }
+
+    .dashicons,
+    svg,
+    .svg {
+        fill: currentColor;
+        font-size: 20px !important;
+        width: 20px !important;
+        height: 20px !important;
+        
+        @media(min-width: 850px){
+            font-size: 25px !important;
+            width: 25px !important;
+            height: 25px !important;
+        }
+    }
+
+    a:first-child {
+        border-top-left-radius: 16px;
+    }
+
+    a:last-child {
+        border-bottom-left-radius: 16px;
+    }
+
+    &.left {
+        left: 0;
+        right: unset;
+
+        a:first-child {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 16px;
+        }
+
+        a:last-child {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 16px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        bottom: 70px;
+        min-width: unset;
+        a {
+            background-position-y: 15px !important;
+            height: 50px !important;
+        }
+    }
+
+    a {
+        width: 30px;
+        height: 60px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) {
+            width: 40px;
+        }
+    }
+}

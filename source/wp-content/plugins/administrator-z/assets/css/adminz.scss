@@ -1,0 +1,196 @@
+body.administrator-z {
+    pre {
+        text-align: left;
+    }
+
+    .adminz {
+
+        &_map {
+            .form {
+                display: none;
+
+                &.true {
+                    display: block;
+                }
+            }
+
+            .list {
+                .item {
+                    border: 1px solid lightgray;
+                    border-radius: var(--small-radius);
+                    padding: 10px;
+                    gap: 10px;
+                    cursor: pointer;
+
+                    .thumb {
+                        img {
+                            max-width: 50px;
+                            border-radius: var(--small-radius);
+                        }
+                    }
+
+                    &:hover {
+                        background-color: white;
+                    }
+                }
+            }
+
+            .map {
+                background: lightgray;
+
+                @media (max-width: 549px) {
+                    max-height: unset !important;
+                    min-height: unset !important;
+                    height: 100vw !important;
+                }
+
+                .marker-cluster-small {
+                    background-color: #d26e4b54;
+
+                    div {
+                        background-color: #d26e4b;
+                    }
+                }
+
+                .marker-cluster {
+                    span {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        &_readmoreContent {
+            position: relative;
+            padding-bottom: 50px;
+
+            &:not(.toggled) {
+                max-height: 70vh;
+                overflow: hidden;
+
+                &::after {
+                    background-image: -webkit-linear-gradient(bottom, white 40%, transparent 100%);
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                text-align: center;
+                width: 100%;
+                left: 0px;
+                padding-top: 90px;
+            }
+
+            .readmore_bottom {
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                text-align: center;
+                width: 100%;
+                left: 0px;
+                padding-top: 90px;
+                z-index: 1;
+
+                .button {
+                    margin: 0;
+                }
+            }
+        }
+
+        &_min_max_price {
+            margin-bottom: 1em;
+
+            .slider-container {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .slider {
+                margin: 0 0 10px 0;
+                width: 100%;
+            }
+
+            .slider:hover {
+                // opacity: 1;
+            }
+
+            span.amount {
+                font-weight: normal;
+            }
+        }
+
+        &_menu_overlay {
+            .sidebar-menu {
+                .nav-vertical li>a {
+                    padding-left: 20px;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+
+                li.html {
+                    padding: 20px;
+                }
+            }
+
+            background: var(--adminz-mobile_overlay_bg);
+            width: 100%;
+            z-index: 1;
+            max-height: calc(100vh - var(--adminz-header_mobile_height)) !important;
+            overflow: auto;
+
+            &.style_01 {
+                position: relative;
+            }
+
+            &.style_02 {
+                position: absolute;
+            }
+        }
+
+        &_tooltip_box {
+            position: absolute;
+            background: white;
+            z-index: 99;
+            width: 300px;
+            box-shadow: 1px 2px 7px #23232363;
+            overflow-x: hidden;
+            overflow-y: auto;
+            max-height: 60vh;
+
+            .admz_shortdescription {
+                padding: 1em;
+
+                p {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+
+        &_slider_custom {
+            .slider:not(.flickity-enabled) {
+                visibility: hidden;
+            }
+
+            &.slide_small {
+                .flickity-slider {
+                    &>* {
+
+                        &.is-selected>* .img-inner,
+                        &:hover>* .img-inner {
+                            border-color: var(--secondary-color);
+                        }
+
+                        &>* {
+                            .img-inner {
+                                border: 2px solid #dedede;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.adminz_family_tree_classic {
+
+    ul {
+        list-style: none;
+        li{
+            margin-left: 0;
+        }
+    }
+
+    .tree-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .tree-toggle,
+    .tree-toggle-placeholder {
+    }
+
+    .tree-label {
+        //
+    }
+
+    .tree-children{
+        margin-left: 15px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,45 @@
+.adminz_custom_blogs {
+
+    &.paged_style {
+
+        &_loadmore,
+        &_infinity {
+            .inner_pagination {
+                display: none;
+            }
+        }
+
+        &_ajax,
+        &_paged {
+            .inner_loadmore {
+                display: none;
+            }
+        }
+    }
+
+    &.wp_debug_display {
+        &.processing {
+            border: 1px dashed black;
+        }
+
+        &.paged_style {
+
+            &_loadmore,
+            &_infinity {
+                .inner_pagination {
+                    display: block;
+                    background-color: lightgray;
+                }
+            }
+
+            &_ajax,
+            &_paged {
+                .inner_loadmore {
+                    display: block;
+                    background-color: lightgray;
+                }
+            }
+        }
+    }
+
+}

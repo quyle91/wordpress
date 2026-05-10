@@ -1,0 +1,18 @@
+{
+    "name": "quyle/test-vnpay",
+    "autoload": {
+        "psr-4": {
+            "Vnpay\\": "src/"
+        },
+        "files": [
+            "functions/function.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "quyle91",
+            "email": "quylv.dsth@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,298 @@
+body.pack1 {
+
+    // var(--big-radius);
+    // var(--small-radius);
+    // var(--form-controls-radius);
+
+    // -------- global radius ---------------
+
+    form {
+        input,
+        textarea,
+        select,
+        button,
+        .select-resize-ghost,
+        .select2-container .select2-choice,
+        .select2-container .select2-selection {
+            border-radius: var(--form-controls-radius);
+        }
+    }
+
+    $small_radius: (
+        ".button",
+        ".badge-inner",
+        ".widget img",
+        ".box-push .box-text",
+        ".box-bounce .box-text",
+        ".box-label .box-text",
+        ".__",
+    );
+
+    @each $selector in $small_radius {
+        #{$selector} {
+            border-radius: var(--small-radius);
+        }
+    }
+
+    .box-image .image-cover{
+        border-radius: inherit;
+    }
+
+    $big_radius: (
+        ".article-inner img", // only post, we don't css for page content
+        ".border-radius",
+        ".box",
+        ".box-image",
+        ".nav-dropdown",
+        ".row:not(.row-collapse) .col-inner",
+        ".col .video",
+        ".col .img-inner",
+        ".col .slider .flickity-slider>*",
+        ".col .banner",
+        ".col .message-box",
+        ".section-title-main",
+        ".review-form-inner",
+        ".lightbox-content",
+        ".__",
+    );
+
+    @each $selector in $big_radius {
+        #{$selector} {
+            border-radius: var(--big-radius);
+            .shade{
+                border-radius: var(--big-radius);
+            }
+            // .box-text{
+            //     background-color: transparent !important;
+            // }
+        }
+    }
+
+    $overflow_hidden: (
+        // ".row:not(.row-collapse) .col-inner", // ko dùng dc overflow do shadow bị cut
+        ".col .slider .flickity-slider>*",
+        ".col .banner",
+        ".col .message-box",
+        ".__",
+    );
+
+    @each $selector in $overflow_hidden {
+        #{$selector} {
+            overflow: hidden;
+        }
+    }
+
+    $no_radius: (
+        ".no-radius",
+        ".no-radius>*",
+        "#logo img",
+        ".section-bg>img",
+        ".row-collapse .box-image",
+        ".row-collapse .col .banner",
+        ".__",
+    );
+
+    @each $selector in $no_radius {
+        #{$selector} {
+            border-radius: 0px !important;
+        }
+    }
+
+    .badge-circle+.badge,
+    .badge-circle,
+    .badge-outline{
+        margin-left: 0;
+    }
+
+    .badge,
+    .badge-container{
+        &.absolute {
+            left: 0.5em;
+            margin-left: 0;
+        }
+    }
+
+
+    // tab
+    .tabbed-content{
+        .nav-tabs{
+            li:first-child a{
+                border-top-left-radius: var(--big-radius);
+            }
+            li:last-child a {
+                border-top-right-radius: var(--big-radius);
+            }
+        }
+        .tab-panels{
+            border-bottom-left-radius: var(--big-radius);
+            border-bottom-right-radius: var(--big-radius);
+        }
+    }
+
+    @function __remove_radius_right() {
+        @return var(--big-radius) 0px 0px var(--big-radius);
+    }
+
+    @function __remove_radius_bottom() {
+        @return var(--big-radius) var(--big-radius) 0px 0px;
+    }
+
+    // fix shadow
+    $shadow: (
+        1,
+        2,
+        3,
+        4,
+        5
+    );
+    @each $selector in $shadow {
+        .row-box-shadow-#{$selector}{
+            .box{
+                .box-image {
+                    border-radius: __remove_radius_bottom();
+                }
+                &.box-vertical{
+                    @media(min-width: 550px){
+                        .box-image {
+                            border-radius: __remove_radius_right();
+                        }
+                    }
+                }
+                &:not(.box-vertical){
+                    .box-image {
+                        border-radius: __remove_radius_bottom();
+                    }
+                }
+            }
+            &-hover{
+                .col-inner:hover {
+                    .box {
+                        .box-image {
+                            border-radius: __remove_radius_bottom();
+                        }
+                
+                        &.box-vertical {
+                            @media(min-width: 550px) {
+                                .box-image {
+                                    border-radius: __remove_radius_right();
+                                }
+                            }
+                        }
+                
+                        &:not(.box-vertical) {
+                            .box-image {
+                                border-radius: __remove_radius_bottom();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // fix woo
+    &.woocommerce{
+        .product-thumbnails{
+            a,
+            a img{
+                border-radius: var(--big-radius);
+            }
+        }
+    }
+    
+    // fix bgr
+    .has-shadow{
+        .box{
+            &.box-shade, 
+            &.box-overlay{
+                overflow: hidden;
+                border-radius: var(--big-radius);
+            } 
+            &:not(.box-overlay):not(.box-shade){
+                background-color: transparent;
+            }
+        }
+    }
+
+    .dark {
+        .has-shadow {
+            .box {
+                &:not(.box-overlay):not(.box-shade) {
+                    background-color: #333;
+                }
+            }
+        }
+    }
+
+    // widget 
+    .widget-area, // blog sidebar
+    .sidebar-wrapper, // sidebar on element
+    .sidebar-inner, // sidebar woo
+    .product-sidebar-small {
+        .widget {
+            border-radius: var(--big-radius);
+            padding: 1em;
+            border: 1px solid lightgray;
+        }
+    }
+
+    #main:not(.dark) {
+        .widget-area, // blog sidebar
+        .sidebar-wrapper, // sidebar on element
+        .sidebar-inner, // sidebar woo
+        .product-sidebar-small {
+            .widget {
+                background-color: white;
+            }
+        }
+    }
+
+    &.adminz_mobile_verticalbox{
+        @media (max-width: 549px){
+            @each $selector in $shadow {
+                .row-box-shadow-#{$selector}{
+                    .box{
+                        .box-image {
+                            border-radius: __remove_radius_right();
+                        }
+                        &.box-vertical{
+                            @media(min-width: 550px){
+                                .box-image {
+                                    border-radius: __remove_radius_right();
+                                }
+                            }
+                        }
+                        &:not(.box-vertical){
+                            .box-image {
+                                border-radius: __remove_radius_right();
+                            }
+                        }
+                    }
+                    &-hover{
+                        .col-inner:hover {
+                            .box {
+                                .box-image {
+                                    border-radius: __remove_radius_right();
+                                }
+                        
+                                &.box-vertical {
+                                    @media(min-width: 550px) {
+                                        .box-image {
+                                            border-radius: __remove_radius_right();
+                                        }
+                                    }
+                                }
+                        
+                                &:not(.box-vertical) {
+                                    .box-image {
+                                        border-radius: __remove_radius_right();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

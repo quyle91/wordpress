@@ -1,0 +1,92 @@
+// D:\Laragon\www\flatsome\wp-content\plugins\administrator-z\vendor\quyle91\wp-database-helper-v2\assets\css\dbtable.scss
+.wpdh-dbtable {
+    overflow: auto;
+
+    &>* {
+        margin-bottom: 10px;
+    }
+
+    .wpdh-filter-search-form,
+    .wpdh-create-form {
+        border: 2px dashed #ccc;
+        padding: 10px;
+        background-color: white;
+
+        .wpdh-field-wrap {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+    }
+
+    .wpdh-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+        code {
+            word-break: break-all;
+
+            @media(min-width: 600px) {
+                margin-right: auto;
+                max-width: 50%;
+            }
+        }
+    }
+
+    .wpdb-pagination {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+
+        .tablenav {
+            margin: 0px;
+            padding: 0px;
+        }
+    }
+
+    .wpdh-table {
+        table {
+            tr {
+                td {
+                    .wpdh-db-cell-wrap {
+                        border: 2px dashed transparent;
+                        padding: 10px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.048);
+                            border-color: #ccc;
+                        }
+
+                        .wpdh-db-cell-value{
+                            display: -webkit-box;
+                            -webkit-line-clamp: 5;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            min-height: 1em;
+                        }
+
+                        .wpdh-db-cell-form {
+                            .wpdh-db-input {
+                                width: 100%;
+                                margin-bottom: 10px;
+                            }
+                        }
+                    }
+
+                }
+
+                td:first-child,
+                th:first-child {
+                    width: 50px;
+                }
+            }
+        }
+    }
+}

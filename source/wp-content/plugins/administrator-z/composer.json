@@ -1,0 +1,36 @@
+{
+    "name": "quyle/administrator-z",
+    "autoload": {
+        "psr-4": {
+            "Adminz\\": "src/",
+            "WpDatabaseHelperV2\\": "vendor/quyle91/wp-database-helper-v2/src/"
+        },
+        "files": [
+            "includes/functions/__admin.php",
+            "includes/functions/__customize.php",
+            "includes/functions/__files.php",
+            "includes/functions/__functions.php",
+            "includes/functions/__icon.php",
+            "includes/functions/__media.php",
+            "includes/functions/__options.php",
+            "includes/functions/__php_override.php",
+            "includes/functions/__quickcontact.php",
+            "includes/functions/__taxonomy.php",
+            "includes/functions/__user.php",
+            "includes/functions/__woo-search.php",
+            "includes/functions/__woocommerce.php",
+            "includes/functions/__wordpress.php",
+            "includes/functions/load.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "quyle91",
+            "email": "quylv.dsth@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dom-crawler": "^7.4",
+        "symfony/css-selector": "^7.4"
+    }
+}

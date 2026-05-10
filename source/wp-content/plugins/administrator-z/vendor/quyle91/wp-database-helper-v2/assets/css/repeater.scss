@@ -1,0 +1,285 @@
+.wpdh-repeater {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: -1px;
+
+    &.wrap {
+        margin: 0 !important; // bỏ qua css của load-styles.php
+    }
+
+    // default is vertical
+    &.vertical {
+        &>.wpdh-repeater-items {
+            &:not(.hidden) {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 15px;
+                flex-direction: column;
+            }
+        }
+    }
+
+    &.wrap {
+        &>.wpdh-repeater-items {
+            &:not(.hidden) {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &.horizontal {
+        &>.wpdh-repeater-items {
+            &:not(.hidden) {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 15px;
+                flex-direction: row;
+            }
+        }
+    }
+
+    &.has-hidden-fields {
+        &>.wpdh-repeater-items {
+            &>.wpdh-repeater-item {
+                &>.wpdh-repeater-item-actions {
+                    .wpdh-extend-view {
+                        // display: none;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    .wpdh-repeater-label {
+        margin-bottom: 10px;
+    }
+
+    .wpdh-repeater-notes {
+        margin-top: 5px;
+    }
+
+    .wpdh-repeater-item {
+        padding-left: 10px;
+        position: relative;
+        margin-left: 10px;
+        border-left: 3px solid rgba(0, 0, 0, 0);
+        padding-top: 20px;
+
+        &.wrap {
+            margin: 0 !important; // bỏ qua css của load-styles.php
+        }
+
+        &::before {
+            content: attr(data-index);
+            color: #666;
+            position: absolute;
+            top: 10px;
+            left: -11px;
+            background: white;
+            text-align: center;
+            min-width: 1em;
+            display: inline-block;
+        }
+
+        &:hover {
+            border-color: #ccc;
+        }
+
+        &.vertical {
+            &>.wpdh-repeater-item-wrap {
+                &:not(.hidden) {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 15px;
+                    flex-direction: column;
+                }
+            }
+        }
+
+        &.wrap {
+            &>.wpdh-repeater-item-wrap {
+                &:not(.hidden) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        &.horizontal {
+            &>.wpdh-repeater-item-wrap {
+                &:not(.hidden) {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: 15px;
+                    flex-direction: row;
+                }
+            }
+        }
+
+        &.toggled {
+            background-color: #ededed;
+
+            .toggled-field {
+                background-color: #ededed;
+            }
+        }
+
+        .wpdh-repeater-item-actions {
+            position: absolute;
+            right: 0;
+            top: 0px;
+            margin-bottom: -1px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: white;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+
+            .button {
+                margin-right: 5px;
+                margin-bottom: 0;
+                min-height: 20px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    // as same as repeater
+    &.wpdh-width- {
+        &1 {
+            width: calc(100% / 12) * 1 !important;
+            grid-column: auto !important;
+        }
+
+        &2 {
+            width: calc(100% / 12) * 2 !important;
+            grid-column: auto !important;
+        }
+
+        &3 {
+            width: calc(100% / 12) * 3 !important;
+            grid-column: auto !important;
+        }
+
+        &4 {
+            width: calc(100% / 12) * 4 !important;
+            grid-column: auto !important;
+        }
+
+        &5 {
+            width: calc(100% / 12) * 5 !important;
+            grid-column: auto !important;
+        }
+
+        &6 {
+            width: calc(100% / 12) * 6 !important;
+            grid-column: auto !important;
+        }
+
+        &7 {
+            width: calc(100% / 12) * 7 !important;
+            grid-column: auto !important;
+        }
+
+        &8 {
+            width: calc(100% / 12) * 8 !important;
+            grid-column: auto !important;
+        }
+
+        &9 {
+            width: calc(100% / 12) * 9 !important;
+            grid-column: auto !important;
+        }
+
+        &10 {
+            width: calc(100% / 12) * 10 !important;
+            grid-column: auto !important;
+        }
+
+        &11 {
+            width: calc(100% / 12) * 11 !important;
+            grid-column: auto !important;
+        }
+
+        &12 {
+            width: calc(100% / 12) * 12 !important;
+            grid-column: auto !important;
+        }
+
+        &auto {
+            width: auto !important;
+            grid-column: auto !important;
+        }
+    }
+
+    // as same as repeater
+    &.wpdh-gridColumn- {
+        &1 {
+            width: auto !important;
+            grid-column: span 1 !important;
+        }
+
+        &2 {
+            width: auto !important;
+            grid-column: span 2 !important;
+        }
+
+        &3 {
+            width: auto !important;
+            grid-column: span 3 !important;
+        }
+
+        &4 {
+            width: auto !important;
+            grid-column: span 4 !important;
+        }
+
+        &5 {
+            width: auto !important;
+            grid-column: span 5 !important;
+        }
+
+        &6 {
+            width: auto !important;
+            grid-column: span 6 !important;
+        }
+
+        &7 {
+            width: auto !important;
+            grid-column: span 7 !important;
+        }
+
+        &8 {
+            width: auto !important;
+            grid-column: span 8 !important;
+        }
+
+        &9 {
+            width: auto !important;
+            grid-column: span 9 !important;
+        }
+
+        &10 {
+            width: auto !important;
+            grid-column: span 10 !important;
+        }
+
+        &11 {
+            width: auto !important;
+            grid-column: span 11 !important;
+        }
+
+        &12 {
+            width: auto;
+            grid-column: span 12 !important;
+        }
+    }
+
+}

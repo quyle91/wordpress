@@ -1,0 +1,103 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Administrator Z\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-23 14:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.14; wp-6.7.1\n"
+"X-Domain: administrator-z"
+
+#. Name of the plugin
+msgid "Administrator Z"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:8
+msgid "Adminz Posts"
+msgstr ""
+
+#: includes/shortcodes/elementor-category.php:28
+msgid "Category"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:1450
+#: includes/shortcodes/elementor-posts.php:1480
+msgid "comments"
+msgstr ""
+
+#: includes/shortcodes/elementor-category.php:93
+msgid "Empty"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:508
+msgid "Excerpt length"
+msgstr ""
+
+#: includes/shortcodes/elementor-category.php:59
+msgid "Filter by category"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://#"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://quyle91.github.io"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:958
+msgid "List Item"
+msgstr ""
+
+#. Description of the plugin
+msgid "Only for Administrator"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:40
+msgid "Post Type"
+msgstr ""
+
+#. Author of the plugin
+msgid "quyle91"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:593
+msgid "Readmore text"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:88
+msgid "Role Excluded"
+msgstr ""
+
+#: includes/shortcodes/elementor-category.php:41
+msgid "Select Post Type"
+msgstr ""
+
+#: includes/shortcodes/elementor-posts.php:58
+msgid "Taxonomy"
+msgstr ""
+
+#: src/Helper/Wpadminlogin.php:85
+msgid "The answer is incorrect. Please try again."
+msgstr ""
+
+#: includes/shortcodes/elementor-category.php:90
+msgid "Title"
+msgstr ""
+
+#: includes/shortcodes/elementor-category.php:70
+#: includes/shortcodes/elementor-posts.php:435
+msgid "Title HTML Tag"
+msgstr ""
+
+#: src/Helper/Wpadminlogin.php:76
+msgid "You need to answer the question before logging in."
+msgstr ""

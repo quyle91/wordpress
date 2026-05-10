@@ -1,0 +1,86 @@
+.wpdh-admin-column-wrap {
+    border: 2px dashed transparent;
+    padding: 3px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.048);
+        border-color: #ccc;
+        // padding: 10px;
+    }
+
+    .wpdh-meta-value {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        .wpdh-media-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+
+            img {
+                aspect-ratio: 1/1;
+                height: 25px;
+
+                /* The white padding effect */
+                object-fit: contain; // show full image
+                background-color: #fff; // white bars
+                object-position: center; // center the image
+
+                padding: 5px;
+                border: 1px solid #ccc;
+            }
+        }
+    }
+
+    .wpdh-meta-form {
+        .wpdh-field {
+            width: auto !important;
+        }
+
+        .wpdh-save-meta {
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.wpdh-metabox {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    align-items: start;
+
+    .wpdh-repeater,
+    .wpdh-field {
+        // mặc định là 6 cột
+        width: auto;
+        grid-column: span 6;
+    }
+
+    .wpdh-field {
+        .wpdh-field-control {
+            width: 100%;
+
+            .wpdh-control {
+                &:not([type="checkbox"]):not([type="radio"]) {
+                    width: 100%;
+                }
+            }
+        }
+
+        &.wpdh-field-kind-tab {
+            grid-column: span 12 !important;
+
+            &.wpdh-field-type-start:not(.hidden) {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: 16px;
+                align-items: start;
+            }
+        }
+    }
+}
