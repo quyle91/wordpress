@@ -441,6 +441,7 @@ body {
         }
 
         // Blog --------------------------------------------------------------
+        &.blog .blog-wrapper>.row.align-center>.large-10,
         &.archive .blog-wrapper>.row.align-center>.large-10 {
             max-width: 100%;
             flex-basis: 100%;
