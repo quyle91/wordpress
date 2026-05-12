@@ -19,11 +19,11 @@ class Flatsome {
 
     function custom_loadmore() {
         add_action('template_redirect', function () {
-            ob_start([$this, 'my_append_abc_after_pagination']);
+            ob_start([self::class, 'my_append_abc_after_pagination']);
         });
     }
 
-    public function my_append_abc_after_pagination($html) {
+    public static function my_append_abc_after_pagination($html) {
         // Pattern tìm đúng thẻ ul pagination.
         $pattern = '/<ul class="page-numbers nav-pagination links text-center">(.*?)<\/ul>/is';
 
