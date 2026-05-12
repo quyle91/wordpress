@@ -6,6 +6,10 @@ define('FLATSOME_CHILD_VER', wp_get_theme()->get('Version'));
 
 require __DIR__ . "/vendor/autoload.php";
 
+if (!defined('ADMINZ')) {
+    return;
+}
+
 $GLOBALS['FlatsomeChild'] = [
     'Wordpress' => \FlatsomeChild\Controller\Wordpress::get_instance(),
     'Ajax' => \FlatsomeChild\Controller\Ajax::get_instance(),
