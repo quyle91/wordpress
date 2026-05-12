@@ -23,7 +23,7 @@ class NghiLeTruyenThong {
         foreach ($post_types as $post_type) {
             \WpDatabaseHelperV2\Meta\WpMeta::make()
                 ->post_type($post_type)
-                ->label('Banner for ' . $post_type)
+                ->label('Meta data')
                 ->fields(
                     [
 
@@ -80,7 +80,7 @@ class NghiLeTruyenThong {
 
             ob_start();
             echo "<div class='" . implode(' ', $classes) . "'>";
-            
+
 
             // code here 
             $_args = [
@@ -95,7 +95,8 @@ class NghiLeTruyenThong {
                 while ($__the_query->have_posts()) : $__the_query->the_post();
                     echo '[row]';
                     echo '[col span__sm="12"]';
-                    echo '<h3>'.get_the_title().'</h3>';
+                    $link = get_permalink();
+                    echo '<h3><a href="' . $link . '">' . get_the_title() . '</a></h3>';
                     echo '[/col]';
                     echo '[col span="8" span__sm="12"]';
                     $big_image = get_post_meta(get_the_ID(), 'big_image', true);

@@ -42,6 +42,12 @@ final class Flatsome {
             if (wp_script_is('select2')) {
                 adminz_add_body_class('adminz_select2');
             }
+            if (get_theme_mod('blog_post_layout') == 'no-sidebar') {
+                adminz_add_body_class('blog_post_layout_no_sidebar');
+            }
+            if (get_theme_mod('blog_layout') == 'no-sidebar') {
+                adminz_add_body_class('blog_layout_no_sidebar');
+            }
         });
 
 

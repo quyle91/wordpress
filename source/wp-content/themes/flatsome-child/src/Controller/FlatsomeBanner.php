@@ -18,7 +18,7 @@ class FlatsomeBanner {
     }
 
     function page_metabox() {
-        $post_types = ['post', 'page'];
+        $post_types = ['post', 'page', 'nghi-le-truyen-thong'];
 
         foreach ($post_types as $post_type) {
             \WpDatabaseHelperV2\Meta\WpMeta::make()
@@ -32,7 +32,7 @@ class FlatsomeBanner {
                             ->type('checkbox')
                             ->name('enable_banner')
                             ->label('Enable banner')
-                            ->adminColumn(true),
+                            ->adminColumn(false),
 
                         // Field cơ bản
                         \WpDatabaseHelperV2\Fields\WpField::make()
@@ -48,7 +48,7 @@ class FlatsomeBanner {
                             ->type('text')
                             ->name('banner_text')
                             ->label('Banner text')
-                            ->adminColumn(true)
+                            ->adminColumn(false)
                     ]
                 )->register();
         }
@@ -79,7 +79,11 @@ class FlatsomeBanner {
         echo '<h2>' . get_the_title() . '</h2>';
         echo '[/col]';
         echo '[/row]';
-        echo '[section bg="' . $banner_image . '" bg_size="original" bg_overlay="rgba(51, 51, 51, 0.488)" dark="true" height="720px" height__sm="300px" height__md="400px]';
+        $bg_overlay = 'rgba(51, 51, 51, 0.488)';
+        if (!$banner_text) {
+            $bg_overlay = '';
+        }
+        echo '[section bg="' . $banner_image . '" bg_size="original" bg_overlay="' . $bg_overlay . '" dark="true" height="720px" height__sm="200px" height__md="400px]';
         echo '[row]';
         echo '[col span__sm="12"]';
         echo '<h1>' . $banner_text . '</h1>';

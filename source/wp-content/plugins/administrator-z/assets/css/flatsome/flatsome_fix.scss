@@ -441,13 +441,9 @@ body {
         }
 
         // Blog --------------------------------------------------------------
-        &.blog .blog-wrapper>.row.align-center>.large-10,
-        &.archive .blog-wrapper>.row.align-center>.large-10 {
-            max-width: 100%;
-            flex-basis: 100%;
-        }
-
-        &.single-post .blog-wrapper>.row.align-center>.large-10 {
+        &.blog_layout_no_sidebar.blog .blog-wrapper>.row.align-center>.large-10:only-child,
+        &.blog_layout_no_sidebar.archive .blog-wrapper>.row.align-center>.large-10:only-child,
+        &.blog_post_layout_no_sidebar.single .blog-wrapper>.row.align-center>.large-10:only-child {
             max-width: 100%;
             flex-basis: 100%;
         }
