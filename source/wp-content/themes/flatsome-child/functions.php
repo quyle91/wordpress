@@ -19,6 +19,7 @@ $GLOBALS['FlatsomeChild'] = [
     'Wpcf7' => \FlatsomeChild\Controller\Wpcf7::get_instance(),
     'Woocommerce' => \FlatsomeChild\Controller\Woocommerce::get_instance(),
     'Flatsome' => \FlatsomeChild\Controller\Flatsome::get_instance(),
+    'NghiLeTruyenThong' => \FlatsomeChild\Controller\NghiLeTruyenThong::get_instance(),
     'FlatsomeElement' => \FlatsomeChild\Controller\FlatsomeElement::get_instance(),
     'FlatsomeBanner' => \FlatsomeChild\Controller\FlatsomeBanner::get_instance(),
     'Acf' => \FlatsomeChild\Controller\Acf::get_instance(),
