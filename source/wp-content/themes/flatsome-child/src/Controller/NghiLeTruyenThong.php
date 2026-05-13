@@ -14,7 +14,7 @@ class NghiLeTruyenThong {
     function __construct() {
         //
         $this->page_metabox();
-        $this->shortcode_nghi_le_truyen_thong();
+        $this->shortcode_nghi_le_truyen_thong(); // dùng trang list
     }
 
     function page_metabox() {
@@ -23,10 +23,9 @@ class NghiLeTruyenThong {
         foreach ($post_types as $post_type) {
             \WpDatabaseHelperV2\Meta\WpMeta::make()
                 ->post_type($post_type)
-                ->label('Meta data')
+                ->label('Extra thumbnails')
                 ->fields(
                     [
-
                         // Field cơ bản
                         \WpDatabaseHelperV2\Fields\WpField::make()
                             ->kind('input')
@@ -42,6 +41,7 @@ class NghiLeTruyenThong {
                             ->name('small_image')
                             ->label('Small image')
                             ->adminColumn(true),
+                        
                     ]
                 )->register();
         }
