@@ -58,6 +58,15 @@ class FlatsomeUxBuilder {
         $this->post_meta_box();
     }
 
+    function post_type_archive_layout_support() {
+        if (!$this->post_type) {
+            return;
+        }
+
+        $this->post_type_archive_build_template();
+        $this->post_type_archive_build_adminbar_link();
+    }
+
     function taxonomy_build_adminbar_link() {
         if (!$this->taxonomy) {
             return;
@@ -160,6 +169,36 @@ class FlatsomeUxBuilder {
         });
     }
 
+    function post_type_archive_build_adminbar_link() {
+        add_action('wp_before_admin_bar_render', function () {
+            global $wp_admin_bar;
+            if (!is_post_type_archive($this->post_type)) {
+                return;
+            }
+
+            // find template_block_id
+            $template_block_id = false;
+            global $adminz;
+            $post_type_archive_template = $adminz['Flatsome']->settings['post_type_archive_template'] ?? [];
+            foreach ((array) $post_type_archive_template as $key => $value) {
+                if ($value['key'] == $this->post_type) {
+                    $template_block_id = $value['value'];
+                    break;
+                }
+            }
+
+            if ($template_block_id) {
+                $template_block_id = self::post_type_get_block_id($template_block_id);
+                $wp_admin_bar->add_menu(array(
+                    'parent' => 'edit',
+                    'id'     => 'edit_uxbuilder_archive',
+                    'title'  => 'Edit ' . get_the_title($template_block_id) . ' with UX Builder',
+                    'href'   => ux_builder_edit_url($template_block_id),
+                ));
+            }
+        });
+    }
+
     function taxonomy_build_template() {
         if (!$this->taxonomy) {
             return;
@@ -228,10 +267,6 @@ class FlatsomeUxBuilder {
     }
 
     function post_type_layout_build_template() {
-        if (!$this->post_type) {
-            return;
-        }
-
         add_filter('single_template', function ($template, $type, $templates) {
             if (is_single() && get_post_type() == $this->post_type) {
                 // find template_block_id
@@ -251,6 +286,32 @@ class FlatsomeUxBuilder {
                     $source = $this->source;
                     $source = $source ? $source : 'index.php';
                     $template = ADMINZ_DIR . "includes/file/flatsome_post_type_templates/" . $source;
+                }
+            }
+            return $template;
+        }, 10, 3);
+    }
+
+    function post_type_archive_build_template() {
+        add_filter('archive_template', function ($template, $type, $templates) {
+            if (is_post_type_archive($this->post_type)) {
+                // find template_block_id
+                $template_block_id = false;
+                global $adminz;
+                $post_type_archive_template = $adminz['Flatsome']->settings['post_type_archive_template'] ?? [];
+                foreach ((array) $post_type_archive_template as $key => $value) {
+                    if ($value['key'] == $this->post_type) {
+                        $template_block_id = $value['value'];
+                        break;
+                    }
+                }
+
+                if ($template_block_id = self::post_type_get_block_id($template_block_id)) {
+                    $key = 'adminz_fl_archive_block_id_' . get_post_type();
+                    $GLOBALS[$key] = $template_block_id;
+                    $source = $this->source;
+                    $source = $source ? $source : 'index.php';
+                    $template = ADMINZ_DIR . "includes/file/flatsome_post_type_archive_templates/" . $source;
                 }
             }
             return $template;

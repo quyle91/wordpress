@@ -251,6 +251,22 @@ final class Flatsome {
         }
 
         // 
+        if ($post_type_archive_template = ($this->settings['post_type_archive_template'] ?? [])) {
+            foreach ($post_type_archive_template as $value) {
+                $post_type = $value['key'] ?? '';
+                $template = $value['value'] ?? '';
+                $source = $value['source'] ?? '';
+                if ($template and $post_type) {
+                    $xxx = new \Adminz\Helper\FlatsomeUxBuilder;
+                    $xxx->post_type = $post_type;
+                    $xxx->template_block_id = $template;
+                    $xxx->source = $source;
+                    $xxx->post_type_archive_layout_support();
+                }
+            }
+        }
+
+        // 
         if ($taxonomy_layout_support = ($this->settings['taxonomy_layout_support'] ?? [])) {
             foreach ($taxonomy_layout_support as $value) {
                 $tax = $value['key'] ?? '';
@@ -1801,6 +1817,77 @@ final class Flatsome {
                 </small>
                 </p>
                 HTML;
+            },
+            $this->id,
+            'adminz_flatsome_ux_build'
+        );
+
+        // field 
+        add_settings_field(
+            wp_rand(),
+            'Post type archive template',
+            function () {
+                $value_options = [];
+                $query_args = [
+                    'post_type' => 'blocks',
+                    'post_status' => 'publish',
+                    'posts_per_page' => -1
+                ];
+                $the_query = new \WP_Query($query_args);
+                if ($the_query->have_posts()) :
+                    while ($the_query->have_posts()) :
+                        $the_query->the_post();
+                        $value_options["block_id_" . get_the_ID()] = "Block: " . get_the_title();
+                    endwhile;
+                endif;
+                wp_reset_postdata();
+
+                // refactor
+                echo \WpDatabaseHelperV2\Fields\WpRepeater::make()
+                    ->name($this->option_name . '[post_type_archive_template]')
+                    ->value($this->settings['post_type_archive_template'] ?? false) // giá trị đã lưu
+                    ->childDirection('wrap')
+                    ->fields([
+
+                        //
+                        \WpDatabaseHelperV2\Fields\WpField::make()
+                            ->kind('select')
+                            ->name('key')
+                            ->label('Post type')
+                            ->optionsTemplate('post_types')
+                            ->copyButton(true),
+
+                        //
+                        \WpDatabaseHelperV2\Fields\WpField::make()
+                            ->kind('select')
+                            ->name('value')
+                            ->label('Template')
+                            ->options($value_options)
+                            ->copyButton(true),
+
+                        //
+                        \WpDatabaseHelperV2\Fields\WpField::make()
+                            ->kind('select')
+                            ->name('source')
+                            ->label('Source')
+                            ->options(
+                                [
+                                    'index.php' => 'index.php',
+                                    'page-blank-landingpage.php' => 'page-blank-landingpage.php',
+                                    'checkout-simple.php' => 'checkout-simple.php',
+                                ]
+                            )
+                            ->copyButton(true),
+
+                    ])
+                    ->default([
+                        [
+                            'key' => '',
+                            'value' => '',
+                            'source' => '',
+                        ],
+                    ])
+                    ->render();
             },
             $this->id,
             'adminz_flatsome_ux_build'
