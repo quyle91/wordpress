@@ -18,7 +18,7 @@ class FlatsomeBanner {
     }
 
     function page_metabox() {
-        $post_types = ['post', 'page', 'nghi-le-truyen-thong'];
+        $post_types = ['post', 'page', 'nghi-le-truyen-thong', 'nghe-thu-cong'];
 
         foreach ($post_types as $post_type) {
             \WpDatabaseHelperV2\Meta\WpMeta::make()
@@ -32,7 +32,7 @@ class FlatsomeBanner {
                             ->type('checkbox')
                             ->name('enable_banner')
                             ->label('Enable banner')
-                            ->adminColumn(false),
+                            ->adminColumn(true),
 
                         // Field cơ bản
                         \WpDatabaseHelperV2\Fields\WpField::make()
@@ -48,7 +48,7 @@ class FlatsomeBanner {
                             ->type('text')
                             ->name('banner_text')
                             ->label('Banner text')
-                            ->adminColumn(false)
+                            ->adminColumn(true)
                     ]
                 )->register();
         }
