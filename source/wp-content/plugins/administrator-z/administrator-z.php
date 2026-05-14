@@ -6,7 +6,7 @@
  * Plugin URI: http://#
  * Author: quyle91
  * Author URI: http://quyle91.net
- * Version: 2026.05.10
+ * Version: 2026.05.14
  * License: GPL2
  * Text Domain: administrator-z
  * Domain Path: /languages
