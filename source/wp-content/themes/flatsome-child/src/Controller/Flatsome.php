@@ -15,6 +15,47 @@ class Flatsome {
         $this->custom_loadmore();
         $this->crack();
         $this->remove_flatsome_notices();
+        $this->change_radius();
+        $this->add_blog_breadcrumb();
+    }
+
+    function add_blog_breadcrumb() {
+        add_action('flatsome_before_blog', function () {
+            // check if is archive or is blog page 
+            if (is_archive() or is_home()) {
+                // get archive title 
+                $archive_title = get_the_archive_title();
+
+                if(is_home()){
+                    $archive_title = get_the_title(get_option('page_for_posts'));
+                }
+
+                if(is_archive()){
+                    $post_type = get_post_type();
+                    $archive_title = get_post_type_object($post_type)->labels->name;
+                }
+
+                $shortcode = '[gap]
+                [row]
+                [col span__sm="12"]
+                [adminz_breadcrumb]
+                [/col]
+                [col span__sm="12"]
+                <h1>' . $archive_title . '</h1>
+                [/col]
+                [/row]';
+                                echo do_shortcode($shortcode);
+            }
+        });
+    }
+
+    function change_radius() {
+        add_filter('adminz_pack1_big-radius', function () {
+            return '5px';
+        });
+        add_filter('adminz_pack1_small-radius', function () {
+            return '5px';
+        });
     }
 
     function custom_loadmore() {

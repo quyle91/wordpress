@@ -145,4 +145,11 @@ body {
     #main {
         //
     }
+
+
+    img{
+        &.size-full.alignnone {
+            margin-bottom: 0px;
+        }
+    }
 }

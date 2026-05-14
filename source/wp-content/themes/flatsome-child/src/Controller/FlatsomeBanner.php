@@ -73,9 +73,11 @@ class FlatsomeBanner {
         }
 
         ob_start();
+        echo '[gap]';
         echo '[row]';
         echo '[col span__sm="12"]';
         echo '[adminz_breadcrumb]';
+        echo '[gap]';
         echo '<h2>' . get_the_title() . '</h2>';
         echo '[/col]';
         echo '[/row]';
@@ -83,10 +85,10 @@ class FlatsomeBanner {
         if (!$banner_text) {
             $bg_overlay = '';
         }
-        echo '[section bg="' . $banner_image . '" bg_size="original" bg_overlay="' . $bg_overlay . '" dark="true" height="720px" height__sm="200px" height__md="400px]';
+        echo '[section class="xbanner" bg="' . $banner_image . '" bg_size="original" bg_overlay="' . $bg_overlay . '" dark="true" height="720px" height__sm="200px" height__md="400px]';
         echo '[row]';
         echo '[col span__sm="12"]';
-        echo '<h1>' . $banner_text . '</h1>';
+        echo '<h1 class="MTD_Carrington">' . $banner_text . '</h1>';
         echo '[/col]';
         echo '[/row]';
         echo '[/section]';
