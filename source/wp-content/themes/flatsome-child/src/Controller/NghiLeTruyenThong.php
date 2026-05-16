@@ -94,17 +94,17 @@ class NghiLeTruyenThong {
             if ($__the_query->have_posts()) {
                 while ($__the_query->have_posts()) : $__the_query->the_post();
                     echo '[row]';
-                    echo '[col span__sm="12"]';
+                    echo '[col span__sm="12" class="pb-0"]';
                     $link = get_permalink();
                     echo '<h3><a href="' . $link . '">' . get_the_title() . '</a></h3>';
                     echo '[/col]';
                     echo '[col span="8" span__sm="12"]';
                     $big_image = get_post_meta(get_the_ID(), 'big_image', true);
-                    echo '[ux_image id=" ' . $big_image . '" height="31%"]';
+                    echo '[ux_image id=" ' . $big_image . '" height="40%"]';
                     echo '[/col]';
                     echo '[col span="4" span__sm="12"]';
                     $small_image = get_post_meta(get_the_ID(), 'small_image', true);
-                    echo '[ux_image id=" ' . $small_image . '" height="48%"]';
+                    echo '[ux_image id=" ' . $small_image . '" height="64%"]';
                     $link = get_permalink();
                     echo '[button text="Xem thêm" color="white" style="outline" expand="true" link="' . $link . '"]';
                     echo '[/col]';

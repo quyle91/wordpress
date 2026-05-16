@@ -13,7 +13,7 @@ body {
     input[type=reset],
     input[type=submit],
     strong {
-        font-weight: normal;
+        font-weight: 500;
     }
 }
 
@@ -183,6 +183,17 @@ body {
     .page-wrapper {
         padding-bottom: 0px;
         padding-top: 0px;
+
+        .row{
+            .large-10:only-child{
+                .entry-header{
+                    display: none;
+                }
+                .entry-content{
+                    padding-top: 0px;
+                }
+            }
+        }
     }
 }
 
@@ -197,5 +208,11 @@ body {
     .custom-li-prev,
     .custom-li-next {
         //
+    }
+}
+
+body.blog{
+    .from_the_blog_excerpt{
+        display: none;
     }
 }

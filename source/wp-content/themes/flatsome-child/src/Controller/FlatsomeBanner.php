@@ -51,7 +51,7 @@ class FlatsomeBanner {
                             ])
                             ->name('banner_type')
                             ->default('section_with_bgr')
-                            ->label('Banner image')
+                            ->label('Banner type')
                             ->adminColumn(true),
 
                         // Field cơ bản
@@ -123,6 +123,7 @@ class FlatsomeBanner {
         }
 
         // gap
+        echo '[gap]';
         echo '[gap]';
 
         echo do_shortcode(ob_get_clean());
