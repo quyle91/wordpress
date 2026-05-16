@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 var injectCustomLis = function () {
                     if (!$dots.find('.custom-li-prev').length) {
-                        var button = '<svg style="width: 1em; height: 1em; vertical-align: middle;" class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg>';
+                        var button = '<svg style="width: 1em; height: 1em; vertical-align: middle; cursor:pointer;" class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg>';
                         var $newPrev = jQuery('<li class="custom-li-prev inline ml-0 mr-half">' + button + '</li>');
                         $newPrev.on('click', function (e) {
                             e.stopPropagation();
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
 
                     if (!$dots.find('.custom-li-next').length) {
-                        var button = '<svg style="width: 1em; height: 1em; vertical-align: middle;" class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>';
+                        var button = '<svg style="width: 1em; height: 1em; vertical-align: middle; cursor:pointer;" class="flickity-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>';
                         var $newNext = jQuery('<li class="custom-li-next inline ml-half mr-0">' + button + '</li>');
                         $newNext.on('click', function (e) {
                             e.stopPropagation();

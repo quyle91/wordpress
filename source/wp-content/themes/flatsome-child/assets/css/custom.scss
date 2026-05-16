@@ -13,7 +13,7 @@ body {
     input[type=reset],
     input[type=submit],
     strong {
-        font-weight: 500;
+        font-weight: normal;
     }
 }
 
@@ -49,6 +49,14 @@ body {
                     // border-top: 1px solid gray;
                     .flex-left {
                         border-bottom: 1px solid #dadada;
+
+                        ul {
+                            @media(min-width: 850px) {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                        }
                     }
                 }
             }
@@ -175,5 +183,19 @@ body {
     .page-wrapper {
         padding-bottom: 0px;
         padding-top: 0px;
+    }
+}
+
+.flickity-page-dots {
+    .dot {
+        border: 2px solid black !important;
+        background-color: transparent !important;
+        height: 9px !important;
+        width: 9px !important;
+    }
+
+    .custom-li-prev,
+    .custom-li-next {
+        //
     }
 }

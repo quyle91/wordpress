@@ -44,6 +44,18 @@ class FlatsomeBanner {
 
                         // Field cơ bản
                         \WpDatabaseHelperV2\Fields\WpField::make()
+                            ->kind('select')
+                            ->options([
+                                'section_with_bgr' => 'Background',
+                                'image' => 'Image'
+                            ])
+                            ->name('banner_type')
+                            ->default('section_with_bgr')
+                            ->label('Banner image')
+                            ->adminColumn(true),
+
+                        // Field cơ bản
+                        \WpDatabaseHelperV2\Fields\WpField::make()
                             ->kind('input')
                             ->type('text')
                             ->name('banner_text')
@@ -72,8 +84,16 @@ class FlatsomeBanner {
             return;
         }
 
+        $banner_type = get_post_meta(get_the_ID(), 'banner_type', true);
+        if (!$banner_type) {
+            $banner_type = 'section_with_bgr';
+        }
+
         ob_start();
+        // gap
         echo '[gap]';
+
+        //
         echo '[row]';
         echo '[col span__sm="12"]';
         echo '[adminz_breadcrumb]';
@@ -81,17 +101,30 @@ class FlatsomeBanner {
         echo '<h2>' . get_the_title() . '</h2>';
         echo '[/col]';
         echo '[/row]';
-        $bg_overlay = 'rgba(51, 51, 51, 0.488)';
-        if (!$banner_text) {
-            $bg_overlay = '';
+
+        // section_with_bgr
+        if ($banner_type == 'section_with_bgr') {
+            $bg_overlay = 'rgba(51, 51, 51, 0.488)';
+            if (!$banner_text) {
+                $bg_overlay = '';
+            }
+            echo '[section class="xbanner" bg="' . $banner_image . '" bg_size="original" bg_overlay="' . $bg_overlay . '" dark="true" height="720px" height__sm="200px" height__md="400px]';
+            echo '[row]';
+            echo '[col span__sm="12"]';
+            echo '<h1 class="MTD_Carrington">' . $banner_text . '</h1>';
+            echo '[/col]';
+            echo '[/row]';
+            echo '[/section]';
         }
-        echo '[section class="xbanner" bg="' . $banner_image . '" bg_size="original" bg_overlay="' . $bg_overlay . '" dark="true" height="720px" height__sm="200px" height__md="400px]';
-        echo '[row]';
-        echo '[col span__sm="12"]';
-        echo '<h1 class="MTD_Carrington">' . $banner_text . '</h1>';
-        echo '[/col]';
-        echo '[/row]';
-        echo '[/section]';
+
+        // image
+        if ($banner_type == 'image') {
+            echo '[ux_image id="' . $banner_image . '" image_size="original"]';
+        }
+
+        // gap
+        echo '[gap]';
+
         echo do_shortcode(ob_get_clean());
     }
 }
