@@ -68,6 +68,7 @@ final class AdministratorZ {
             function () {
                 $list = [
                     // 'Crawl tool: refactor',
+                    'Flatsome: addition Nav buttons in pagination',
                     'Flatsome: Post type archive template',
                     'Downgrade to php 8.1 as required',
                     'Wordperss tool - Add tool detete image with image id in db',

@@ -489,6 +489,11 @@ final class Flatsome {
         }
 
         // 
+        if (($this->settings['nav_in_pagination'] ?? "") == "on") {
+            adminz_add_body_class('nav_in_pagination');
+        }
+
+        // 
         if ($pages = ($this->settings['page_for_transparent'] ?? [])) {
             foreach ((array) $pages as $page) {
                 if ($page) {
@@ -1367,6 +1372,25 @@ final class Flatsome {
                     ->name($this->option_name . '[slider_post_item_width_75vw]')
                     ->value($this->settings['slider_post_item_width_75vw'] ?? "")
                     ->addNote("Mobile: .Col in slider column from 100% -> 2/3 screen")
+                    ->copyButton(false)
+                    ->render();
+            },
+            $this->id,
+            'adminz_flatsome_css'
+        );
+
+        // field 
+        add_settings_field(
+            wp_rand(),
+            'Flickity Nav in pagination',
+            function () {
+                // field
+                echo \WpDatabaseHelperV2\Fields\WpField::make()
+                    ->kind('input')
+                    ->type('checkbox')
+                    ->name($this->option_name . '[nav_in_pagination]')
+                    ->value($this->settings['nav_in_pagination'] ?? "")
+                    ->addNote("Additional nav buttons in pagination")
                     ->copyButton(false)
                     ->render();
             },
