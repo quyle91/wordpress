@@ -105,7 +105,7 @@ class NgheThuCong {
                     echo '[/col]';
                     echo '[col span="4" span__sm="12"]';
                     $small_image = get_post_meta(get_the_ID(), 'small_image', true);
-                    echo '[ux_image id=" ' . $small_image . '" height="64%"]';
+                    echo '[ux_image id=" ' . $small_image . '" height="70%"]';
                     $link = get_permalink();
                     echo '[button text="Xem thêm" color="white" style="outline" expand="true" link="' . $link . '"]';
                     echo '[/col]';
