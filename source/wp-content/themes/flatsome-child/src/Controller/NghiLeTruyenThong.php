@@ -93,7 +93,7 @@ class NghiLeTruyenThong {
             $__the_query = new \WP_Query($_args);
             if ($__the_query->have_posts()) {
                 while ($__the_query->have_posts()) : $__the_query->the_post();
-                    echo '[row]';
+                    echo '[row v_align="equal"]';
                     echo '[col span__sm="12" class="pb-0"]';
                     $link = get_permalink();
                     echo '<h3><a href="' . $link . '">' . get_the_title() . '</a></h3>';
@@ -106,7 +106,7 @@ class NghiLeTruyenThong {
                     $small_image = get_post_meta(get_the_ID(), 'small_image', true);
                     echo '[ux_image id=" ' . $small_image . '" height="70%"]';
                     $link = get_permalink();
-                    echo '[button text="Xem thêm" color="white" style="outline" expand="true" link="' . $link . '"]';
+                    echo '[button class="mb-0" text="Xem thêm" color="white" style="outline" expand="true" link="' . $link . '"]';
                     echo '[/col]';
                     echo '[/row]';
                 endwhile;

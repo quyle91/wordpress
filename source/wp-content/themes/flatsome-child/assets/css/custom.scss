@@ -38,20 +38,20 @@ body {
 #header {
     .header-wrapper {
 
-        &:not(.stuck) {
+        @media(min-width: 850px) {
 
             padding-bottom: 25px;
             padding-top: 25px;
-
-            #wide-nav {
-                .container {
-                    //
-                }
-            }
         }
 
+
         #wide-nav {
+
             .container {
+                @media(min-width: 850px) {
+
+                    padding-top: 25px;
+                }
 
                 // border-top: 1px solid gray;
                 .flex-left {
@@ -221,5 +221,25 @@ body {
 body.blog {
     .from_the_blog_excerpt {
         display: none;
+    }
+}
+
+.nghe_thu_cong,
+.nghi_le_truyen_thong {
+    .row.align-equal {
+        .col-inner {
+            .img:only-child {
+                height: 100%;
+
+                .img-inner {
+                    height: 100%;
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
     }
 }
