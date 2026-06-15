@@ -3,7 +3,6 @@ services:
   app:
     container_name: ${APP_NAME}_app
     restart: always
-    env_file: .env
     environment:
       # case 1
       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
@@ -28,7 +27,6 @@ services:
     container_name: ${APP_NAME}_web
     image: nginx:stable-alpine
     restart: always
-    env_file: .env
     depends_on:
       - app
 
