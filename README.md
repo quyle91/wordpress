@@ -7,6 +7,7 @@ docker compose down
 2. Build image 
 ```bash
 docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml build
+docker run --rm -it registry.gitlab.com/xxx
 docker login registry.gitlab.com
 docker compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod.yml push
 ```
