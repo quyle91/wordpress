@@ -7,8 +7,7 @@ services:
     restart: always
     volumes:
       - wp_uploads:/var/www/html/wp-content/uploads
-      - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
-      - ./docker/php/zzz-uploads.ini:/usr/local/etc/php/conf.d/zzz-uploads.ini:ro
+      # Configs are now COPY-ed in Dockerfile, so no binding needed unless you want to override
     networks:
       default:
 

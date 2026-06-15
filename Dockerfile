@@ -38,5 +38,9 @@ COPY --chown=www-data:www-data ./docker/import/ .
 RUN find . -type d -exec chmod 755 {} \; && \
     find . -type f -exec chmod 644 {} \;
 
+# Copy php configs directly into the image
+COPY ./docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY ./docker/php/zzz-uploads.ini /usr/local/etc/php/conf.d/zzz-uploads.ini
+
 # No need for custom entrypoint anymore as code is already in place
 CMD ["php-fpm"]

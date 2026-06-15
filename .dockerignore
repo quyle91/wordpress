@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env*
+docker-compose*.yml
+README.md
+.ai-context.md
+
+# Large backups and logs
+source/wp-content/ai1wm-backups/*
+source/wp-content/debug.log
+source/wp-content/upgrade/*
+source/wp-content/upgrade-temp-backup/*
+
+# Uploads are stored in external volume on production, no need to bake local uploads into the image
+source/wp-content/uploads/*
