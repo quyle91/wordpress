@@ -10,6 +10,18 @@ $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https://
 define('WP_HOME', $protocol . ($_SERVER['HTTP_HOST'] ?? 'localhost'));
 define('WP_SITEURL', $protocol . ($_SERVER['HTTP_HOST'] ?? 'localhost'));
 
+// Block external HTTP requests to prevent local site timeouts/slowness
+define('WP_HTTP_BLOCK_EXTERNAL', true);
+define('WP_ACCESSIBLE_HOSTS', 'localhost,*.localhost,auth.ictp.nl');
+
+// Disable scripts and styles concatenation to avoid load-styles.php issues
+define('CONCATENATE_SCRIPTS', false);
+
+// Disable displaying errors on screen to prevent headers already sent issues
+// define('WP_DEBUG_DISPLAY', false);
+// @ini_set('display_errors', 0);
+
+
 
 /**
  * The base configuration for WordPress
